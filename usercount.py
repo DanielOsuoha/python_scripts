@@ -12,7 +12,7 @@ def current_users(events):
             machines[event.machine] = set()
         if event.type == 'login':
             machines[event.machine].add(event.user)
-        elif event.type == 'logout':
+        elif event.type == 'logout' and event.user in machines[event.machine]:
             machines[event.machine].remove(event.user)
     return machines
 
@@ -32,5 +32,5 @@ events = [
 ]
 
 users = current_users(events)
-print(users)
+# print(users)
 generate_report(users)
