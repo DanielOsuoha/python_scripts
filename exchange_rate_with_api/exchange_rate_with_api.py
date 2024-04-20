@@ -26,3 +26,4 @@ class Currency:
 
 c = Currency()
 c.do_request()
+c.write_to_file()
